@@ -9,26 +9,27 @@
   -moz-user-select: none;
   user-select: none;
 
-  /* Outer 1px edge + ~4px inner glass frame approximated with box-shadow */
-  border: 4px solid #b8ccda;
-  outline: 1px solid #6a8aa0;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.55);
+  /* Aero glass frame: thin dark outer edge + medium blue-gray border */
+  border: 4px solid #b8c8d8;
+  outline: 1px solid #7090a8;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
 
-  background-color: #f0f0f0;
+  /* Window body background — clearly medium gray as in screenshot */
+  background-color: #d4d4d4;
 }
 
-/* ── Title bar — Aero glass (light blue-gray, NOT dark navy) ───────────── */
+/* ── Title bar — pale Aero glass, almost white ─────────────────────────── */
 
 .calc-windows7 .title-container {
   display: flex;
   align-items: center;
   height: 28px;
-  padding: 0 2px 0 4px;
+  padding: 0 2px 0 5px;
   background: linear-gradient(to bottom,
-    #d4e2f0 0%,
-    #c0d2e4 50%,
-    #b4c8da 100%);
-  border-bottom: 1px solid #8aaac0;
+    #f2f6fa 0%,
+    #dce8f2 55%,
+    #c8d8ea 100%);
+  border-bottom: 1px solid #9ab0c4;
   cursor: grab;
   cursor: -webkit-grab;
 }
@@ -38,13 +39,13 @@
   cursor: -webkit-grabbing;
 }
 
-/* Small blue calculator icon */
+/* Blue calculator icon */
 .calc-windows7 .title-icon {
   width: 16px;
   height: 16px;
-  margin-right: 5px;
-  background: linear-gradient(135deg, #5090d0 0%, #2060a8 100%);
-  border: 1px solid #1a4a88;
+  margin-right: 4px;
+  background: linear-gradient(135deg, #60a0d8 0%, #2460a0 100%);
+  border: 1px solid #1848808;
   border-radius: 2px;
   flex-shrink: 0;
 }
@@ -55,44 +56,54 @@
   font-size: 12px;
   font-weight: normal;
   color: #1a1a1a;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
 /* ── Window control buttons ────────────────────────────────────────────── */
 
 .calc-windows7 .title-buttons {
   display: flex;
-  gap: 2px;
+  align-self: stretch;
+  align-items: center;
   cursor: default;
 }
 
 .calc-windows7 .win-btn {
-  width: 26px;
-  height: 20px;
+  width: 27px;
+  height: 100%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   font-size: 10px;
-  color: #222;
-  border-radius: 3px;
-  border: 1px solid #90a8bc;
-  background: linear-gradient(to bottom, #dce8f4 0%, #b8cedc 100%);
+  color: #333;
+  border-left: 1px solid rgba(255, 255, 255, 0.6);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background: linear-gradient(to bottom,
+    rgba(255, 255, 255, 0.7) 0%,
+    rgba(200, 220, 240, 0.7) 100%);
   cursor: default;
+}
+
+.calc-windows7 .win-btn:hover {
+  background: linear-gradient(to bottom, #dceefa, #b8d8f4);
 }
 
 .calc-windows7 .win-close {
   color: #fff;
-  border-color: #882010;
-  background: linear-gradient(to bottom, #e84030 0%, #b82010 100%);
+  background: linear-gradient(to bottom, #e84030 0%, #c02010 100%);
+  border-left-color: rgba(255, 255, 255, 0.3);
 }
 
-/* ── Menu bar ──────────────────────────────────────────────────────────── */
+.calc-windows7 .win-close:hover {
+  background: linear-gradient(to bottom, #f05040 0%, #d02818 100%);
+}
+
+/* ── Menu bar — same medium gray as body ───────────────────────────────── */
 
 .calc-windows7 .menu-bar {
   display: flex;
-  padding: 2px 4px;
-  background-color: #f0f0f0;
-  border-bottom: 1px solid #cccccc;
+  padding: 2px 6px;
+  background-color: #d4d4d4;
+  border-bottom: 1px solid #b4b4b4;
   font-family: 'Segoe UI', Arial, sans-serif;
   font-size: 12px;
   color: #1a1a1a;
@@ -104,31 +115,32 @@
 }
 
 .calc-windows7 .menu-bar span:hover {
-  background-color: #d4e4f4;
+  background-color: #c0d8ec;
 }
 
-/* ── Display ───────────────────────────────────────────────────────────── */
+/* ── Display — blue-gray gradient fading to white ──────────────────────── */
 
 .calc-windows7 .screen-container {
-  margin: 6px 8px 4px 8px;
-  border: 1px solid #b0bcc8;
-  /* Light top fades to white — matches screenshot */
+  margin: 5px 8px 4px 8px;
+  border: 1px solid #9aaab8;
   background: linear-gradient(to bottom,
-    #dae6f2 0%,
-    #edf4fb 40%,
+    #b8ccd8 0%,
+    #d8e8f2 35%,
+    #f4f8fc 65%,
     #ffffff 100%);
-  box-shadow: inset 0 1px 3px rgba(0, 60, 120, 0.12);
+  box-shadow: inset 0 2px 4px rgba(0, 40, 80, 0.1);
 }
 
+/* "0" — italic gray, matching the stylised Windows 7 display font */
 .calc-windows7 .screen-input {
   text-align: right;
-  padding: 4px 10px 4px 10px;
+  padding: 4px 10px;
   font-family: 'Segoe UI', Arial, sans-serif;
-  font-size: 22px;
+  font-size: 26px;
   font-style: italic;
-  color: #606060;
-  min-height: 38px;
-  line-height: 38px;
+  color: #555555;
+  min-height: 40px;
+  line-height: 40px;
 }
 
 /* ── Button grid ───────────────────────────────────────────────────────── */
@@ -138,14 +150,15 @@
   grid-template-columns: repeat(5, 1fr);
   gap: 3px;
   padding: 4px 8px 8px 8px;
+  /* inherits body background #d4d4d4 — buttons sit on the gray body */
 }
 
+/* Buttons are lighter than the body so they stand out */
 .calc-windows7 .button {
   height: 28px;
-  border: 1px solid #b4b8bc;
+  border: 1px solid #b0b4b8;
   border-radius: 1px;
-  /* Nearly flat white/light-gray — matches Windows 7 screenshot */
-  background: linear-gradient(to bottom, #f8f8f8 0%, #e4e4e4 100%);
+  background: linear-gradient(to bottom, #ffffff 0%, #e4e4e4 100%);
   font-family: 'Segoe UI', Arial, sans-serif;
   font-size: 12px;
   color: #1a1a1a;
@@ -157,16 +170,16 @@
 }
 
 .calc-windows7 .button:hover {
-  background: linear-gradient(to bottom, #e8f2fc 0%, #ccddf0 100%);
-  border-color: #88aacc;
+  background: linear-gradient(to bottom, #e4f0fc 0%, #c4daf4 100%);
+  border-color: #7aaad0;
 }
 
 .calc-windows7 .button:active {
-  background: linear-gradient(to bottom, #c4d8ee 0%, #a8c8e4 100%);
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(to bottom, #b8d4ee 0%, #98c0e8 100%);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.18);
 }
 
-/* = spans two rows; 0 spans two columns */
+/* = spans rows 5–6; 0 spans columns 1–2 */
 
 .calc-windows7 .button-equals {
   grid-row: span 2;
