@@ -9,51 +9,59 @@
     </head>
     <body>
 
-        <div class="calc-osx">
-            <div class="title-container">
-                <ul class="window-buttons">
-                    <li class="close"></li>
-                    <li class="minimize"></li>
-                    <li class="disabled"></li>
-                </ul>
-                <div class="title-label">Calculator</div>
-            </div>
+        <template id="template-osx">
+            <div class="calc-osx">
+                <div class="title-container">
+                    <ul class="window-buttons">
+                        <li class="close"></li>
+                        <li class="minimize"></li>
+                        <li class="disabled"></li>
+                    </ul>
+                    <div class="title-label">Calculator</div>
+                </div>
 
-            <div class="screen-container">
-                <div class="screen-input">0</div>
-            </div>
+                <div class="screen-container">
+                    <div class="screen-input">0</div>
+                </div>
 
-            <div class="buttons-container">
-                <ul class="buttons">
-                    <li class="button"><span class="button-label">MC</span></li>
-                    <li class="button"><span class="button-label">M+</span></li>
-                    <li class="button"><span class="button-label">M-</span></li>
-                    <li class="button"><span class="button-label">MR</span></li>
-                    <li class="button"><span class="button-label">C</span></li>
-                    <li class="button"><span class="button-label">&#177;</span></li>
-                    <li class="button"><span class="button-label">&#247;</span></li>
-                    <li class="button"><span class="button-label">x</span></li>
-                    <li class="button"><span class="button-label">7</span></li>
-                    <li class="button"><span class="button-label">8</span></li>
-                    <li class="button"><span class="button-label">9</span></li>
-                    <li class="button"><span class="button-label">-</span></li>
-                    <li class="button"><span class="button-label">4</span></li>
-                    <li class="button"><span class="button-label">5</span></li>
-                    <li class="button"><span class="button-label">6</span></li>
-                    <li class="button"><span class="button-label">+</span></li>
-                    <li class="button"><span class="button-label">1</span></li>
-                    <li class="button"><span class="button-label">2</span></li>
-                    <li class="button"><span class="button-label">3</span></li>
-                    <li class="button button-equals"><span class="button-label">=</span></li>
-                    <li class="last">
-                        <ul>
-                            <li class="button button-zero"><span class="button-label">0</span></li>
-                            <li class="button"><span class="button-label">.</span></li>
-                        </ul>
-                    </li>
-                </ul>
+                <div class="buttons-container">
+                    <ul class="buttons">
+                        <li class="button"><span class="button-label">MC</span></li>
+                        <li class="button"><span class="button-label">M+</span></li>
+                        <li class="button"><span class="button-label">M-</span></li>
+                        <li class="button"><span class="button-label">MR</span></li>
+                        <li class="button"><span class="button-label">C</span></li>
+                        <li class="button"><span class="button-label">&#177;</span></li>
+                        <li class="button"><span class="button-label">&#247;</span></li>
+                        <li class="button"><span class="button-label">x</span></li>
+                        <li class="button"><span class="button-label">7</span></li>
+                        <li class="button"><span class="button-label">8</span></li>
+                        <li class="button"><span class="button-label">9</span></li>
+                        <li class="button"><span class="button-label">-</span></li>
+                        <li class="button"><span class="button-label">4</span></li>
+                        <li class="button"><span class="button-label">5</span></li>
+                        <li class="button"><span class="button-label">6</span></li>
+                        <li class="button"><span class="button-label">+</span></li>
+                        <li class="button"><span class="button-label">1</span></li>
+                        <li class="button"><span class="button-label">2</span></li>
+                        <li class="button"><span class="button-label">3</span></li>
+                        <li class="button button-equals"><span class="button-label">=</span></li>
+                        <li class="last">
+                            <ul>
+                                <li class="button button-zero"><span class="button-label">0</span></li>
+                                <li class="button"><span class="button-label">.</span></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
+        </template>
+
+        <script>
+            var theme = (document.cookie.match(/(?:^|;\s*)calc-theme=([^;]+)/) || [])[1] || 'osx';
+            var tmpl  = document.getElementById('template-' + theme);
+            document.body.appendChild(tmpl.content.cloneNode(true));
+        </script>
 
         <script type="text/javascript" src="js/calc.js"></script>
 
