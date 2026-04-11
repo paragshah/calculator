@@ -3,7 +3,7 @@
 
   // ── DOM refs ────────────────────────────────────────────────────────────
   var displayEl = document.querySelector('.screen-input');
-  var calcEl    = document.querySelector('.calc-osx');
+  var calcEl    = document.querySelector('.calc-container');
   var handleEl  = document.querySelector('.title-container');
 
   // ── Calculator state ────────────────────────────────────────────────────
@@ -63,12 +63,47 @@
     displayEl.textContent = '0';
   }
 
+  function clearEntry() {
+    currentInput = '0';
+    displayEl.textContent = '0';
+    waitingForSecond = false;
+  }
+
+  function backspace() {
+    if (waitingForSecond) return;
+    currentInput = currentInput.length > 1 ? currentInput.slice(0, -1) : '0';
+    displayEl.textContent = currentInput;
+  }
+
   function toggleSign() {
     if (currentInput === '0' || currentInput === 'Error') return;
     currentInput = (currentInput.charAt(0) === '-')
       ? currentInput.slice(1)
       : '-' + currentInput;
     displayEl.textContent = currentInput;
+  }
+
+  function squareRoot() {
+    var val = parseFloat(currentInput);
+    if (val < 0) { setDisplay('Error'); return; }
+    setDisplay(formatResult(Math.sqrt(val)));
+    waitingForSecond = true;
+  }
+
+  function percent() {
+    var val = parseFloat(currentInput);
+    var result = (firstOperand !== null && (operator === '+' || operator === '-'))
+      ? firstOperand * val / 100
+      : val / 100;
+    setDisplay(formatResult(result));
+    waitingForSecond = false;
+  }
+
+  function reciprocal() {
+    var val = parseFloat(currentInput);
+    if (val === 0) { setDisplay('Error'); return; }
+    setDisplay(formatResult(1 / val));
+    waitingForSecond = true;
   }
 
   function compute(a, b, op) {
@@ -110,6 +145,7 @@
   function memoryClear()  { memory = 0; }
   function memoryAdd()    { memory += parseFloat(currentInput) || 0; }
   function memorySub()    { memory -= parseFloat(currentInput) || 0; }
+  function memoryStore()  { memory  = parseFloat(currentInput) || 0; }
   function memoryRecall() {
     setDisplay(formatResult(memory));
     waitingForSecond = false;
@@ -125,18 +161,26 @@
       if ('0123456789'.indexOf(label) !== -1) { inputDigit(label); return; }
 
       switch (label) {
-        case '.':  inputDecimal();     break;
-        case 'C':  clearAll();         break;
-        case '\u00b1': toggleSign();   break;  // ±
-        case '\u00f7': applyOperator('/'); break;  // ÷
-        case 'x':  applyOperator('*'); break;
-        case '-':  applyOperator('-'); break;
-        case '+':  applyOperator('+'); break;
-        case '=':  equals();           break;
-        case 'MC': memoryClear();      break;
-        case 'M+': memoryAdd();        break;
-        case 'M-': memorySub();        break;
-        case 'MR': memoryRecall();     break;
+        case '.':          inputDecimal();        break;
+        case 'C':          clearAll();            break;
+        case 'CE':         clearEntry();          break;
+        case '\u2190':     backspace();           break;  // ←
+        case '\u00b1':     toggleSign();          break;  // ±
+        case '\u00f7':     applyOperator('/');    break;  // ÷ (osx)
+        case '/':          applyOperator('/');    break;
+        case 'x':          applyOperator('*');    break;  // osx
+        case '*':          applyOperator('*');    break;
+        case '-':          applyOperator('-');    break;
+        case '+':          applyOperator('+');    break;
+        case '=':          equals();              break;
+        case '\u221a':     squareRoot();          break;  // √
+        case '%':          percent();             break;
+        case '1/x':        reciprocal();          break;
+        case 'MC':         memoryClear();         break;
+        case 'M+':         memoryAdd();           break;
+        case 'M-':         memorySub();           break;
+        case 'MS':         memoryStore();         break;
+        case 'MR':         memoryRecall();        break;
       }
     });
 

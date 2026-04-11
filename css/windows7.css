@@ -1,0 +1,172 @@
+.calc-windows7 {
+  position: fixed;
+  top: 100px;
+  left: 100px;
+  width: 228px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  border: 1px solid #2a5aa0;
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.6);
+  background-color: #f0f0f0;
+}
+
+/* ── Title bar ─────────────────────────────────────────────────────────── */
+
+.calc-windows7 .title-container {
+  display: flex;
+  align-items: center;
+  height: 28px;
+  padding: 0 4px 0 6px;
+  background-image: linear-gradient(to bottom, #4c7fd4 0%, #1a3e82 100%);
+  cursor: grab;
+  cursor: -webkit-grab;
+}
+
+.calc-windows7 .title-container:active {
+  cursor: grabbing;
+  cursor: -webkit-grabbing;
+}
+
+.calc-windows7 .title-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+  background-image: linear-gradient(135deg, #70aee8, #2a6cbf);
+  border: 1px solid #1a4a90;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.calc-windows7 .title-label {
+  flex: 1;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 12px;
+  color: #ffffff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.calc-windows7 .title-buttons {
+  display: flex;
+  gap: 2px;
+  cursor: default;
+}
+
+.calc-windows7 .win-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 18px;
+  font-size: 10px;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  background-image: linear-gradient(to bottom, #5d8ed6, #2d5da8);
+  cursor: default;
+}
+
+.calc-windows7 .win-btn:hover {
+  background-image: linear-gradient(to bottom, #7aaae8, #3a72c4);
+}
+
+.calc-windows7 .win-close {
+  background-image: linear-gradient(to bottom, #e05252, #b02020);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.calc-windows7 .win-close:hover {
+  background-image: linear-gradient(to bottom, #f06060, #c83030);
+}
+
+/* ── Menu bar ──────────────────────────────────────────────────────────── */
+
+.calc-windows7 .menu-bar {
+  display: flex;
+  gap: 2px;
+  padding: 2px 4px;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #d0d0d0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 12px;
+}
+
+.calc-windows7 .menu-bar span {
+  padding: 1px 6px;
+  cursor: default;
+}
+
+.calc-windows7 .menu-bar span:hover {
+  background-color: #d8e8f8;
+  border: 1px solid #0078d7;
+  padding: 0 5px;
+}
+
+/* ── Display ───────────────────────────────────────────────────────────── */
+
+.calc-windows7 .screen-container {
+  margin: 6px 6px 4px 6px;
+  background-color: #ffffff;
+  border: 1px solid #abadb3;
+  box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.calc-windows7 .screen-input {
+  text-align: right;
+  padding: 4px 8px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 22px;
+  color: #000000;
+  min-height: 36px;
+  line-height: 36px;
+}
+
+/* ── Buttons grid ──────────────────────────────────────────────────────── */
+
+.calc-windows7 .buttons-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 3px;
+  padding: 4px 6px 6px 6px;
+}
+
+.calc-windows7 .button {
+  height: 28px;
+  border: 1px solid #adadad;
+  border-radius: 2px;
+  background-image: linear-gradient(to bottom, #fcfcfc 0%, #e3e3e3 100%);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 12px;
+  color: #1a1a1a;
+  cursor: default;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.calc-windows7 .button:hover {
+  background-image: linear-gradient(to bottom, #e8f3fd 0%, #cce0f8 100%);
+  border-color: #0078d7;
+  color: #003399;
+}
+
+.calc-windows7 .button:active {
+  background-image: linear-gradient(to bottom, #c4daf7 0%, #a8c8f0 100%);
+  border-color: #005fa3;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.calc-windows7 .btn-memory {
+  background-image: linear-gradient(to bottom, #f4f4f4 0%, #d8d8d8 100%);
+  color: #555555;
+}
+
+.calc-windows7 .button-equals {
+  grid-row: span 2;
+  height: auto;
+}
+
+.calc-windows7 .button-zero {
+  grid-column: span 2;
+}

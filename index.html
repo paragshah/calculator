@@ -5,12 +5,13 @@
 
         <link rel="stylesheet" type="text/css" href="css/base.css">
         <link rel="stylesheet" type="text/css" href="css/osx.css">
+        <link rel="stylesheet" type="text/css" href="css/windows7.css">
 
     </head>
     <body>
 
         <template id="template-osx">
-            <div class="calc-osx">
+            <div class="calc-container calc-osx">
                 <div class="title-container">
                     <ul class="window-buttons">
                         <li class="close"></li>
@@ -53,6 +54,66 @@
                             </ul>
                         </li>
                     </ul>
+                </div>
+            </div>
+        </template>
+
+        <template id="template-windows7">
+            <div class="calc-container calc-windows7">
+                <div class="title-container">
+                    <span class="title-icon"></span>
+                    <span class="title-label">Calculator</span>
+                    <div class="title-buttons">
+                        <span class="win-btn win-minimize">&#8211;</span>
+                        <span class="win-btn win-maximize">&#9633;</span>
+                        <span class="win-btn win-close">&#10005;</span>
+                    </div>
+                </div>
+
+                <div class="menu-bar">
+                    <span>View</span>
+                    <span>Edit</span>
+                    <span>Help</span>
+                </div>
+
+                <div class="screen-container">
+                    <div class="screen-input">0</div>
+                </div>
+
+                <div class="buttons-container">
+                    <button class="button btn-memory"><span class="button-label">MC</span></button>
+                    <button class="button btn-memory"><span class="button-label">MR</span></button>
+                    <button class="button btn-memory"><span class="button-label">MS</span></button>
+                    <button class="button btn-memory"><span class="button-label">M+</span></button>
+                    <button class="button btn-memory"><span class="button-label">M-</span></button>
+
+                    <button class="button"><span class="button-label">&#8592;</span></button>
+                    <button class="button"><span class="button-label">CE</span></button>
+                    <button class="button"><span class="button-label">C</span></button>
+                    <button class="button"><span class="button-label">&#177;</span></button>
+                    <button class="button"><span class="button-label">&#8730;</span></button>
+
+                    <button class="button"><span class="button-label">7</span></button>
+                    <button class="button"><span class="button-label">8</span></button>
+                    <button class="button"><span class="button-label">9</span></button>
+                    <button class="button"><span class="button-label">/</span></button>
+                    <button class="button"><span class="button-label">%</span></button>
+
+                    <button class="button"><span class="button-label">4</span></button>
+                    <button class="button"><span class="button-label">5</span></button>
+                    <button class="button"><span class="button-label">6</span></button>
+                    <button class="button"><span class="button-label">*</span></button>
+                    <button class="button"><span class="button-label">1/x</span></button>
+
+                    <button class="button"><span class="button-label">1</span></button>
+                    <button class="button"><span class="button-label">2</span></button>
+                    <button class="button"><span class="button-label">3</span></button>
+                    <button class="button"><span class="button-label">-</span></button>
+                    <button class="button button-equals"><span class="button-label">=</span></button>
+
+                    <button class="button button-zero"><span class="button-label">0</span></button>
+                    <button class="button"><span class="button-label">.</span></button>
+                    <button class="button"><span class="button-label">+</span></button>
                 </div>
             </div>
         </template>
