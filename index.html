@@ -118,9 +118,22 @@
             </div>
         </template>
 
+        <select id="theme-switcher">
+            <option value="osx">macOS</option>
+            <option value="windows7">Windows 7</option>
+        </select>
+
         <script>
             var theme = (document.cookie.match(/(?:^|;\s*)calc-theme=([^;]+)/) || [])[1] || 'osx';
-            var tmpl  = document.getElementById('template-' + theme);
+
+            var switcher = document.getElementById('theme-switcher');
+            switcher.value = theme;
+            switcher.addEventListener('change', function () {
+                document.cookie = 'calc-theme=' + this.value + '; path=/';
+                location.reload();
+            });
+
+            var tmpl = document.getElementById('template-' + theme);
             document.body.appendChild(tmpl.content.cloneNode(true));
         </script>
 
