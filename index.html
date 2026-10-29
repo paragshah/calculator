@@ -119,7 +119,7 @@
         </template>
 
         <select id="theme-switcher">
-            <option value="osx">macOS</option>
+            <option value="osx">OSX Tiger</option>
             <option value="windows7">Windows 7</option>
         </select>
 
@@ -132,6 +132,17 @@
                 document.cookie = 'calc-theme=' + this.value + '; path=/';
                 location.reload();
             });
+
+            var wallpapers = {
+                'osx': 'images/wallpaper/osx-tiger.jpg',
+                'windows7': 'images/wallpaper/wndows7.jpg'
+            };
+            if (wallpapers[theme]) {
+                document.body.style.backgroundImage = 'url(' + wallpapers[theme] + ')';
+                document.body.style.backgroundSize = 'cover';
+                document.body.style.backgroundPosition = 'center';
+                document.body.style.backgroundAttachment = 'fixed';
+            }
 
             var tmpl = document.getElementById('template-' + theme);
             document.body.appendChild(tmpl.content.cloneNode(true));

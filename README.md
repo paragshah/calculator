@@ -4,7 +4,7 @@ A multi-theme calculator widget built with plain HTML, CSS, and vanilla JavaScri
 
 | macOS | Windows 7 |
 |---|---|
-| ![macOS Calculator](images/screenshots/osx.png) | ![Windows 7 Calculator](images/screenshots/windows7.png) |
+| ![macOS Calculator](images/screenshots/osx-tiger.png) | ![Windows 7 Calculator](images/screenshots/windows7.png) |
 
 ## Features
 
